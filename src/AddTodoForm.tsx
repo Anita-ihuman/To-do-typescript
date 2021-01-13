@@ -1,6 +1,10 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
+import { Interface } from 'readline';
 
-const AddTodoForm: React.FC = () => {
+interface AddTodoFormProps {
+    addTodo: (newTodo: string) => void;
+}
+const AddTodoForm: React.FC<AddTodoFormProps> = ({ addTodo }) => {
     const [newTodo, setNewTodo] = useState('');
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -8,11 +12,13 @@ const AddTodoForm: React.FC = () => {
     };
     const handleSubmit = (e: FormEvent<HTMLButtonElement>) => {
         e.preventDefault();
+        addTodo(newTodo);
+        setNewTodo('');
     };
     return (
         <form>
             <input type="text" value={newTodo} onChange={handleChange} />
-            <button type="submit" onClick={() => {}}>
+            <button type="submit" onClick={handleSubmit}>
                 Add Todo
             </button>
         </form>
