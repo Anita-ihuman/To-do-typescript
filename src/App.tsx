@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { TodoListItem } from './TodoListItem';
 import { TodoList } from './TodoList';
 import AddTodoForm from './AddTodoForm';
@@ -24,14 +24,14 @@ const App = () => {
         setTodos(newTodos);
     };
 
-    const addTodo = (newTodo: string) => {
-        setTodos([...todos, { text: newTodo, complete: false }]);
+    const addTodo: AddTodo = (newTodo) => {
+        newTodo.trim() !== '' && setTodos([...todos, { text: newTodo, complete: false }]);
     };
 
     return (
         <>
             <TodoList todos={todos} toggleTodos={toggleTodos} />
-            <AddTodoForm />
+            <AddTodoForm addTodo={addTodo} />
         </>
     );
 };
