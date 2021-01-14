@@ -1,5 +1,6 @@
+/* eslint-disable import/extensions */
 import React from 'react';
-import { TodoListItem } from './TodoListItem';
+import TodoListItem from './TodoListItem';
 import { ToggleTodo, Todo } from './Type';
 
 interface TodoListProps {
@@ -7,7 +8,7 @@ interface TodoListProps {
     toggleTodos: ToggleTodo;
 }
 
-export const TodoList: React.FC<TodoListProps> = ({ todos, toggleTodos }) => {
+const TodoList: React.FC<TodoListProps> = ({ todos, toggleTodos }) => {
     return (
         <ul>
             {todos.map((todo) => {
@@ -16,3 +17,5 @@ export const TodoList: React.FC<TodoListProps> = ({ todos, toggleTodos }) => {
         </ul>
     );
 };
+
+export default TodoList;

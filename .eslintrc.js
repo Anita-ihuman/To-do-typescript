@@ -37,5 +37,6 @@ module.exports = {
                 endOfLine: 'auto',
             },
         ],
+        'import/extensions': 'off',
     },
 };
