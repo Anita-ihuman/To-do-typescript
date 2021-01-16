@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './TodoListItem.css';
+import { Todo, ToggleTodo } from './Type';
 
 interface TodoListItemProps {
     todo: Todo;
